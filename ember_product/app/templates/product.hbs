@@ -1,0 +1,25 @@
+
+<section>
+	<header>{{model.name}}</header>
+	<img src="//anf.scene7.com/is/image/anf/anf_{{model.collection}}_{{model.swatchSeq}}_prod1"/>
+	<ul>
+		<li>
+			{{model.name}}
+		</li>
+		<li>
+			{{model.shortDesc}}
+		</li>
+		<li>
+			<ul>
+				<li>{{model.lowPriceFmt}}</li>
+				<li>{{model.highPriceFmt}}</li>
+			</ul>
+		</li>
+		<li>
+			{{labled-select options=model.avaiableColors text="Color" selected=model.swatchSeq}}
+		</li>
+		<li>
+			{{labled-select options=model.avaiableSizes text="Size"}}
+		</li>
+	</ul>
+</section>

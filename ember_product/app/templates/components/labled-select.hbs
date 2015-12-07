@@ -1,0 +1,11 @@
+<label>{{text}}: </label>
+<select onchange={{action "updateValue"}}>
+	<option>Select One</option>
+	{{#each options as |myOption|}}
+		{{#if myOption.selected}}
+			<option value="{{myOption.value}}" selected="selected">{{myOption.text}}</option>
+		{{else}}
+			<option value="{{myOption.value}}" >{{myOption.text}}</option>
+		{{/if}}
+	{{/each}}
+</select>
