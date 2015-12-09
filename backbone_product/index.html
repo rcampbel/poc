@@ -27,6 +27,8 @@
 		</script>
 
 		<script src="model.js" type="text/javascript"></script>
+		<script src="template.js" type="text/javascript"></script>
+		<script src="view.js" type="text/javascript"></script>
 		
 		<script>
 
@@ -831,7 +833,8 @@
 						offer : {
 			    			raw : item.offerPrice,
 			    			formated: item.offerPriceFmt
-						}
+						},
+						priceFlag : item.priceFlag
 					});
 
 				if (typeof item.definingAttrs === "object" && item.definingAttrs !== null) {
@@ -874,7 +877,17 @@
 			"name":"Big Icon Polo",
 			"newArrival": false,
 			"ofpImage":"1",
-			"price" : new ANFApp.model._product.Price(),
+			"price" : new ANFApp.model._product.Price({
+				list : {
+	    			raw : 0,
+	    			formated: "$0.00"
+				},
+				offer : {
+	    			raw : 0,
+	    			formated: "$0.00"
+				},
+				priceFlag : "1"
+			}),
 			"priceFlag":"1",
 			"productAttrs":[],
 			"productAttrsComplex":{},
@@ -889,6 +902,11 @@
 			"maxPurchaseQty":2,
 			"loadDate":"2015-10-08T17:46:12"
 		});
+
+		var myProductView = new ANFApp.view._product.Product({
+			model: myProduct
+		});
+myProductView.render();
 
 		</script>
 

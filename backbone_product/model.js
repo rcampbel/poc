@@ -24,7 +24,8 @@
 			offer : {
     			raw : 0,
     			formated: "$0.00"
-			}
+			},
+			priceFlag: "1"
 		}
     }); 
 
@@ -63,7 +64,7 @@
     			"sizeChartSeq":"1",
     			"displaySoldOut":false,
     			"published":false,
-    			price : null,
+    			"price" : null,
     			"swatchAttrId":"Color",
     			"defaultSwatchSequence":"",
     			"swatchSequences":[],
