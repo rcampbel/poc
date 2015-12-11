@@ -9,6 +9,7 @@
 		<!-- ========= -->
 		<!-- Your HTML -->
 		<!-- ========= -->
+		<div id="primary-content"></div>
 
 		<!-- ========= -->
 		<!-- Libraries -->
@@ -863,10 +864,10 @@
 			}
 		));
 
-		myProduct = new ANFApp.model._product.Product({
+		myProduct = new ANFApp.model._product.ATB({
 			"collection":"99553",
 			"crossSellProductIds":[],
-			"defaultSwatchSequence":"",
+			"defaultSwatchSequence":"01",
 			"displaySoldOut":false,
 			"isGiftCard":false,
 			"items": mySkus,
@@ -900,13 +901,18 @@
 			"swatchSequencesExcludeSoldOut":[],
 			"newArrival":false,
 			"maxPurchaseQty":2,
-			"loadDate":"2015-10-08T17:46:12"
+			"loadDate":"2015-10-08T17:46:12",
+
+
+			currentPrice : new ANFApp.model._product.Price(),
+    		currentSelectedSku : "",
+    		currentSelectedSeq : "01"
+    		
 		});
 
-		var myProductView = new ANFApp.view._product.Product({
+		new ANFApp.view._product.ATBProduct({
 			model: myProduct
 		});
-myProductView.render();
 
 		</script>
 
