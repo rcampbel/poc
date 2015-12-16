@@ -25,13 +25,44 @@
 
 				optionsArray.forEach(this.bindComponent, this);
 			}
+		},
+		bindModelEvents: function() {
+			if (typeof this.modelEvents === "object" && this.modelEvents !== null) {
+				_.keys(this.modelEvents).map(function(key) {
+					var callbacks = this.modelEvents[key];
+
+					if (typeof callbacks === "string" && callbacks.trim().length >0) {
+						callbacks = [callbacks];
+					}
+
+					if (callbacks instanceof Array){	
+						callbacks.map(function(callback){
+	
+							if (typeof callback === 'string' && typeof this[callback] === 'function') {
+								callback = this[callback];
+							}
+	
+							if (typeof callback === 'function') {
+								this.stopListening(this.model, key, callback);
+								this.listenTo(this.model, key, callback);
+							}
+						}, this);
+					}
+
+				}, this);
+			}
 		}
 	});
 
 	ANFApp._global.View.Radio = ANFApp._global.View.extend({
 		template: _.template(ANFApp._global.template.Radio || ""),
-  //   	initialize: function(){
-		// },
+  		events : {
+  			"change input" : "updateSelected",
+  			"change:disabled" : 'udpateView_disabled'
+  		},
+  		updateModleSelected: function(event) {
+  			this.model.set('selected', event.target.checked);
+  		},
     	render: function() {
 			this.$el.html(this.template(_.extend({}, {cid: this.cid}, this.model.attributes))) ;
 			return this;
@@ -41,13 +72,18 @@
 	ANFApp._global.View.RadioList = ANFApp._global.View.extend({
     	tagName: "div",
     	className: "radio-list",
-    	// events: {},
-    	radioElements : [],
+    	events: {
+    		"change input" : "updateSelected"
+    	},
+    	updateSelected : function(event) {
+    		this.collection.models.forEach(function(model){
+    			model.set('selected', model.isValueEqual(this.value));
+    		}, event.target);
+    		
+    	},
     	initialize: function(){
 			this.render();
-			
-			this.radioElements = [];
-
+		
 			this.collection.models.forEach(function(myLocalModel) {
 				var radioElement = new ANFApp._global.View.Radio({
 					model : myLocalModel 
@@ -68,10 +104,6 @@
     ANFApp.view = ANFApp.view || {};
     ANFApp.view._product = ANFApp.view._product || {};
 
-
-
-
-
   	ANFApp.view._product.Price = ANFApp._global.View.extend({
     	tagName: "div",
     	className: "product__price",
@@ -89,9 +121,10 @@
 
 	ANFApp.view._product.ATBProduct = ANFApp._global.View.extend({
     	el: "#primary-content",
-    	//className: "product",
     	template: _.template(ANFApp.template._product.Product || ""),
-    	// events: {},
+    	modelEvents : {
+			"all" : "udpateOnColorChange"
+    	},
     	initialize: function(){
 			this.render();
 
@@ -102,8 +135,6 @@
 	    			el: this.$('.product__price')
 	    		})
     		});
-
-    		console.log(this.model.get('avaiableColorCollection'));
 
     		this.bindComponent({
     			key : "avaiableColorCollection",
@@ -121,6 +152,10 @@
 	    		})
     		});
 
+    		this.bindModelEvents();
+    	},
+    	udpateOnColorChange : function() {
+    		console.log(arguments);
     	},
     	render: function() {
 			this.$el.html(this.template(this.model.attributes));

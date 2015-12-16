@@ -10,6 +10,9 @@
 			text : "",
 			value : "",
 			name : ""
+		},
+		isValueEqual : function(value) {
+			return this.get("value") === value;
 		}
 	}); 
 
@@ -43,7 +46,7 @@
 	}); 
 
 	ANFApp.model._product.Sku = Backbone.Model.extend({
-		defalut : {
+		default : {
 			"descriptiveAttrs":{},
 			"longSku":"",
 			"price" : new ANFApp.model._product.Price(),
@@ -63,7 +66,7 @@
 	}); 
 
 	ANFApp.model._product.Product = Backbone.Model.extend({
-			defalut: {
+			default: {
 				"productId":"",
 				"name":"",
 				"collection":"",
@@ -143,7 +146,7 @@
 
 			return this;
 		},
-		defalut : {
+		default : {
 			currentSelectedSize: null,
 			currentSelectedSeq : null    		
 		}

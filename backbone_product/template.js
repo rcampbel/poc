@@ -13,7 +13,7 @@ ANFApp._global.template = ANFApp._global.template || {};
 // 		value : <string>
 // 		text : <string>
 // }
-ANFApp._global.template.Radio = "<label for='<%= cid %>'><input type='radio' name='<%= name%>' id='<%= cid %>' selected='<%= selected %>' disabled='<%= disabled %>' value='<%= value %>'/><%= text%></label>";
+ANFApp._global.template.Radio = "<label for='<%= cid %>'><input type='radio' name='<%= name%>' id='<%= cid %>' <%= selected ? \"checked=\'checked\'\" : \"\" %> <%= disabled ? \"disabled=\'disabled\'\" : \"\" %> value='<%= value %>'/><%= text%></label>";
 
 ANFApp.template._product = ANFApp.template._product || {};
 
