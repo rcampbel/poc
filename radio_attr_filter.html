@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+		<style>
+
+			input[type="radio"] {
+				display: none;
+			}
+
+			input[type="radio"] + span {
+				color: green;
+			}
+
+			input[type="radio"]:checked + span {
+				font-weight: bold;
+			}
+
+			input[type="radio"].disalbed + span {
+				color: red;
+				opacity: .5;
+			}
+			
+			
+		</style>
+
+	</head>
+	<body>
+		<div class="parant_grouping">
+			<ul class="radio-group">
+				<li class="radio"><label for="radio_color_1"><input type="radio" value="color_1" name="seq" id="radio_color_1"><span>color_1</span></label></li>
+				<li class="radio"><label for="radio_color_2"><input type="radio" value="color_2" name="seq" id="radio_color_2"><span>color_2</span></label></li>
+				<li class="radio"><label for="radio_color_3"><input type="radio" value="color_3" name="seq" id="radio_color_3"><span>color_3</span></label></li>
+				<li class="radio"><label for="radio_color_4"><input type="radio" value="color_4" name="seq" id="radio_color_4"><span>color_4</span></label></li>
+			</ul>
+			<ul class="radio-group">
+				<li class="radio"><label for="radio_size_primary_1"><input type="radio" value="size_primary_1" name="size-primary" id="radio_size_primary_1"><span>size_primary_1</span></label></li>
+				<li class="radio"><label for="radio_size_primary_2"><input type="radio" value="size_primary_2" name="size-primary" id="radio_size_primary_2"><span>size_primary_2</span></label></li>
+				<li class="radio"><label for="radio_size_primary_3"><input type="radio" value="size_primary_3" name="size-primary" id="radio_size_primary_3"><span>size_primary_3</span></label></li>
+				<li class="radio"><label for="radio_size_primary_4"><input type="radio" value="size_primary_4" name="size-primary" id="radio_size_primary_4"><span>size_primary_4</span></label></li>
+			</ul>
+			<ul class="radio-group">
+				<li class="radio"><label for="radio_size_secondary_1"><input type="radio" value="size_secondary_1" name="size-secondary" id="radio_size_secondary_1"><span>size_secondary_1</span></label></li>
+				<li class="radio"><label for="radio_size_secondary_2"><input type="radio" value="size_secondary_2" name="size-secondary" id="radio_size_secondary_2"><span>size_secondary_2</span></label></li>
+				<li class="radio"><label for="radio_size_secondary_3"><input type="radio" value="size_secondary_3" name="size-secondary" id="radio_size_secondary_3"><span>size_secondary_3</span></label></li>
+				<li class="radio"><label for="radio_size_secondary_4"><input type="radio" value="size_secondary_4" name="size-secondary" id="radio_size_secondary_4"><span>size_secondary_4</span></label></li>
+			</ul>
+		</div>
+
+		<select name="sku" id="skus">
+			<option value="01" data-seq="color_1" data-size-primary="size_primary_1" data-size-secondary="size_secondary_1">1.1.1</option>
+			<option value="02" data-seq="color_1" data-size-primary="size_primary_1" data-size-secondary="size_secondary_2">1.1.2</option>
+			<option value="03" data-seq="color_1" data-size-primary="size_primary_1" data-size-secondary="size_secondary_3">1.1.3</option>
+			<option value="04" data-seq="color_1" data-size-primary="size_primary_1" data-size-secondary="size_secondary_4">1.1.4</option>
+
+			<!-- <option value="05" data-seq="color_1" data-size-primary="size_primary_2" data-size-secondary="size_secondary_1">1.2.1</option>
+			<option value="06" data-seq="color_1" data-size-primary="size_primary_2" data-size-secondary="size_secondary_2">1.2.2</option>
+			<option value="07" data-seq="color_1" data-size-primary="size_primary_2" data-size-secondary="size_secondary_3">1.2.3</option>
+			<option value="08" data-seq="color_1" data-size-primary="size_primary_2" data-size-secondary="size_secondary_4">1.2.4</option> -->
+			
+			<option value="09" data-seq="color_1" data-size-primary="size_primary_3" data-size-secondary="size_secondary_1">1.3.1</option>
+			<option value="10" data-seq="color_1" data-size-primary="size_primary_3" data-size-secondary="size_secondary_2">1.3.2</option>
+			<option value="11" data-seq="color_1" data-size-primary="size_primary_3" data-size-secondary="size_secondary_3">1.3.3</option>
+			<option value="12" data-seq="color_1" data-size-primary="size_primary_3" data-size-secondary="size_secondary_4">1.3.4</option>
+			
+			<option value="13" data-seq="color_1" data-size-primary="size_primary_4" data-size-secondary="size_secondary_1">1.4.1</option>
+			<option value="14" data-seq="color_1" data-size-primary="size_primary_4" data-size-secondary="size_secondary_2">1.4.2</option>
+			<option value="15" data-seq="color_1" data-size-primary="size_primary_4" data-size-secondary="size_secondary_3">1.4.3</option>
+			<option value="16" data-seq="color_1" data-size-primary="size_primary_4" data-size-secondary="size_secondary_4">1.4.4</option>
+			
+			<option value="17" data-seq="color_2" data-size-primary="size_primary_1" data-size-secondary="size_secondary_1">2.1.1</option>
+			<option value="18" data-seq="color_2" data-size-primary="size_primary_1" data-size-secondary="size_secondary_2">2.1.2</option>
+			<option value="19" data-seq="color_2" data-size-primary="size_primary_1" data-size-secondary="size_secondary_3">2.1.3</option>
+			<option value="20" data-seq="color_2" data-size-primary="size_primary_1" data-size-secondary="size_secondary_4">2.1.4</option>
+
+			<option value="21" data-seq="color_2" data-size-primary="size_primary_2" data-size-secondary="size_secondary_1">2.2.1</option>
+			<option value="22" data-seq="color_2" data-size-primary="size_primary_2" data-size-secondary="size_secondary_2">2.2.2</option>
+			<option value="23" data-seq="color_2" data-size-primary="size_primary_2" data-size-secondary="size_secondary_3">2.2.3</option>
+			<option value="24" data-seq="color_2" data-size-primary="size_primary_2" data-size-secondary="size_secondary_4">2.2.4</option>
+			
+			<option value="25" data-seq="color_2" data-size-primary="size_primary_3" data-size-secondary="size_secondary_1">2.3.1</option>
+			<option value="26" data-seq="color_2" data-size-primary="size_primary_3" data-size-secondary="size_secondary_2">2.3.2</option>
+			<option value="27" data-seq="color_2" data-size-primary="size_primary_3" data-size-secondary="size_secondary_3">2.3.3</option>
+			<option value="28" data-seq="color_2" data-size-primary="size_primary_3" data-size-secondary="size_secondary_4">2.3.4</option>
+			
+			<option value="29" data-seq="color_2" data-size-primary="size_primary_4" data-size-secondary="size_secondary_1">2.4.1</option>
+			<option value="30" data-seq="color_2" data-size-primary="size_primary_4" data-size-secondary="size_secondary_2">2.4.2</option>
+			<option value="31" data-seq="color_2" data-size-primary="size_primary_4" data-size-secondary="size_secondary_3">2.4.3</option>
+			<option value="32" data-seq="color_2" data-size-primary="size_primary_4" data-size-secondary="size_secondary_4">2.4.4</option>
+			
+			<option value="33" data-seq="color_3" data-size-primary="size_primary_1" data-size-secondary="size_secondary_1">3.1.1</option>
+			<option value="34" data-seq="color_3" data-size-primary="size_primary_1" data-size-secondary="size_secondary_2">3.1.2</option>
+			<option value="35" data-seq="color_3" data-size-primary="size_primary_1" data-size-secondary="size_secondary_3">3.1.3</option>
+			<option value="36" data-seq="color_3" data-size-primary="size_primary_1" data-size-secondary="size_secondary_4">3.1.4</option>
+
+			<option value="37" data-seq="color_3" data-size-primary="size_primary_2" data-size-secondary="size_secondary_1">3.2.1</option>
+			<option value="38" data-seq="color_3" data-size-primary="size_primary_2" data-size-secondary="size_secondary_2">3.2.2</option>
+			<option value="39" data-seq="color_3" data-size-primary="size_primary_2" data-size-secondary="size_secondary_3">3.2.3</option>
+			<option value="40" data-seq="color_3" data-size-primary="size_primary_2" data-size-secondary="size_secondary_4">3.2.4</option>
+			
+			<option value="41" data-seq="color_3" data-size-primary="size_primary_3" data-size-secondary="size_secondary_1">3.3.1</option>
+			<option value="42" data-seq="color_3" data-size-primary="size_primary_3" data-size-secondary="size_secondary_2">3.3.2</option>
+			<option value="43" data-seq="color_3" data-size-primary="size_primary_3" data-size-secondary="size_secondary_3">3.3.3</option>
+			<option value="44" data-seq="color_3" data-size-primary="size_primary_3" data-size-secondary="size_secondary_4">3.3.4</option>
+			
+			<option value="45" data-seq="color_3" data-size-primary="size_primary_4" data-size-secondary="size_secondary_1">3.4.1</option>
+			<option value="46" data-seq="color_3" data-size-primary="size_primary_4" data-size-secondary="size_secondary_2">3.4.2</option>
+			<option value="47" data-seq="color_3" data-size-primary="size_primary_4" data-size-secondary="size_secondary_3">3.4.3</option>
+			<option value="48" data-seq="color_3" data-size-primary="size_primary_4" data-size-secondary="size_secondary_4">3.4.4</option>
+			
+			<option value="49" data-seq="color_4" data-size-primary="size_primary_1" data-size-secondary="size_secondary_1">4.1.1</option>
+			<option value="50" data-seq="color_4" data-size-primary="size_primary_1" data-size-secondary="size_secondary_2">4.1.2</option>
+			<option value="51" data-seq="color_4" data-size-primary="size_primary_1" data-size-secondary="size_secondary_3">4.1.3</option>
+			<option value="52" data-seq="color_4" data-size-primary="size_primary_1" data-size-secondary="size_secondary_4">4.1.4</option>
+
+			<option value="53" data-seq="color_4" data-size-primary="size_primary_2" data-size-secondary="size_secondary_1">4.2.1</option>
+			<option value="54" data-seq="color_4" data-size-primary="size_primary_2" data-size-secondary="size_secondary_2">4.2.2</option>
+			<option value="55" data-seq="color_4" data-size-primary="size_primary_2" data-size-secondary="size_secondary_3">4.2.3</option>
+			<option value="56" data-seq="color_4" data-size-primary="size_primary_2" data-size-secondary="size_secondary_4">4.2.4</option>
+			
+			<option value="57" data-seq="color_4" data-size-primary="size_primary_3" data-size-secondary="size_secondary_1">4.3.1</option>
+			<option value="58" data-seq="color_4" data-size-primary="size_primary_3" data-size-secondary="size_secondary_2">4.3.2</option>
+			<!-- <option value="59" data-seq="color_4" data-size-primary="size_primary_3" data-size-secondary="size_secondary_3">4.3.3</option> -->
+			<option value="60" data-seq="color_4" data-size-primary="size_primary_3" data-size-secondary="size_secondary_4">4.3.4</option>
+			
+			<option value="61" data-seq="color_4" data-size-primary="size_primary_4" data-size-secondary="size_secondary_1">4.4.1</option>
+			<!-- <option value="62" data-seq="color_4" data-size-primary="size_primary_4" data-size-secondary="size_secondary_2">4.4.2</option>
+			<option value="63" data-seq="color_4" data-size-primary="size_primary_4" data-size-secondary="size_secondary_3">4.4.3</option>
+			<option value="64" data-seq="color_4" data-size-primary="size_primary_4" data-size-secondary="size_secondary_4">4.4.4</option> -->
+		</select>
+
+
+		<script type="text/javascript">
+			var skus = [],
+				definindAttrs = [];
+
+			function helperReduce_UniqueString (previousValue, currentValue) {
+				if (previousValue.indexOf(currentValue) < 0) previousValue.push(currentValue);
+				return previousValue;
+			}
+
+
+			function filterSkus (skuArray, filterCritera) {
+				var newSkuArray = skuArray.slice();
+
+				Object.keys(filterCritera).map(function(key) {
+					var value = filterCritera[key];
+					newSkuArray = newSkuArray.filter(function(sku) {
+						return (value==="*" ? true : (sku[key] === value));
+					});
+				});
+
+				return newSkuArray;
+			}
+
+			function getAvaiableDefAttrValues (skuArray, groupState, attributeName) {
+				var newSkuArray = skuArray.slice(),
+					myGroupState = $.extend({}, groupState);
+
+				delete myGroupState[attributeName];
+
+				newSkuArray = filterSkus(skuArray, myGroupState);
+
+				return newSkuArray.map(function(sku) {return sku[attributeName]}).reduce(helperReduce_UniqueString, []); 
+			}
+
+			function buildSelectableSelector (skuArray, filterCritera) {
+				var returnValue = "",
+					tempConcat = [],
+					tempArray = [];
+
+				tempArray = definindAttrs.map(function(name) {
+					return getAvaiableDefAttrValues(skuArray, filterCritera, name).map(function(value){
+						return "[name='"+name+"'][value='"+value+"']"
+					});
+				});
+
+				return tempConcat.concat.apply(tempConcat, tempArray).join(',');
+			}
+
+			$(document).ready(function() {
+				$("#skus").children().each(function() {
+					var definingObject = {};
+					$.each(this.attributes, function(index, attr) {
+						var name = attr.name.replace("data-", "");
+						definingObject[name] = attr.value;
+
+						if (attr.name.indexOf("data-") === 0 && definindAttrs.indexOf(name) < 0) {
+							definindAttrs.push(name);
+						}
+					});
+					skus.push(definingObject);
+				});
+
+				$('.parant_grouping').on('change', function() {
+					var jq_this = $(this),
+						filterOptions = {},
+						filteredSkus = [],
+						avaiableAttributeSelector = "",
+						jq_inputs = $({}),
+						disalbeClass = "disalbed";
+
+					jq_inputs = jq_this.find('input');
+
+					jq_inputs.serializeArray().forEach(function(input){
+						filterOptions[input.name] = input.value;
+					});
+
+					definindAttrs.forEach(function(key){
+						filterOptions[key] = filterOptions[key] || '*';
+					});
+
+					filteredSkus = filterSkus(skus, filterOptions);
+					if (filteredSkus.length === 1) {
+						$('#skus').val(filteredSkus[0].value);
+					} else {
+						$('#skus').val(null);
+					}
+
+					avaiableAttributeSelector = buildSelectableSelector(skus, filterOptions);
+					jq_inputs.addClass(disalbeClass);
+					jq_inputs.filter(avaiableAttributeSelector).removeClass(disalbeClass);
+
+					
+
+				}).trigger('change');
+
+			});
+		</script>
+
+
+
+	</body>
+
+
+
+</html>
