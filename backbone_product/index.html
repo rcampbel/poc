@@ -1,0 +1,919 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Hello World in Backbone.js</title>
+	</head>
+	<body>
+		<!-- ========= -->
+		<!-- Your HTML -->
+		<!-- ========= -->
+		<div id="primary-content"></div>
+
+		<!-- ========= -->
+		<!-- Libraries -->
+		<!-- ========= -->
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js" type="text/javascript"></script>
+
+
+		<!-- =============== -->
+		<!-- Javascript code -->
+		<!-- =============== -->
+		<script type="text/javascript">
+			// your JS code goes here
+			var ANFApp = {};
+		</script>
+
+		<script src="model.js" type="text/javascript"></script>
+		<script src="template.js" type="text/javascript"></script>
+		<script src="view.js" type="text/javascript"></script>
+		
+		<script>
+
+		var myProduct = null,
+			mySkus = new Backbone.Collection(null, {
+				model: ANFApp.model._product.Sku
+			}),
+			items = [
+				{
+					"itemId": "5881658",
+					"shortSku": "618955482",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "M",
+							"sequence": 90,
+							"valueSequence": 6
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "M",
+							"sequence": 0,
+							"valueSequence": 4
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881659",
+					"shortSku": "618965496",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "L",
+							"sequence": 110,
+							"valueSequence": 8
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "L",
+							"sequence": 0,
+							"valueSequence": 5
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881660",
+					"shortSku": "618965509",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 130,
+							"valueSequence": 10
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 0,
+							"valueSequence": 6
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881661",
+					"shortSku": "618965517",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 150,
+							"valueSequence": 12
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 0,
+							"valueSequence": 7
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881662",
+					"shortSku": "618965525",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 150,
+							"valueSequence": 12
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 0,
+							"valueSequence": 7
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881663",
+					"shortSku": "618965533",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "S",
+							"sequence": 50,
+							"valueSequence": 4
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "S",
+							"sequence": 0,
+							"valueSequence": 3
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881664",
+					"shortSku": "618965541",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "M",
+							"sequence": 90,
+							"valueSequence": 6
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "M",
+							"sequence": 0,
+							"valueSequence": 4
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881665",
+					"shortSku": "618965550",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "L",
+							"sequence": 110,
+							"valueSequence": 8
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "L",
+							"sequence": 0,
+							"valueSequence": 5
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881666",
+					"shortSku": "618965568",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 130,
+							"valueSequence": 10
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 0,
+							"valueSequence": 6
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5881667",
+					"shortSku": "618965576",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "S",
+							"sequence": 50,
+							"valueSequence": 4
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "S",
+							"sequence": 0,
+							"valueSequence": 3
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882100",
+					"shortSku": "619246725",
+					"longSku": "121-224-0645-500",
+					"prodImg": "99553_03",
+					"swatchSequence": "03",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 30,
+							"valueSequence": 2
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "RED",
+							"sequence": 3,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 0,
+							"valueSequence": 2
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882101",
+					"shortSku": "619246733",
+					"longSku": "121-224-0645-200",
+					"prodImg": "99553_01",
+					"swatchSequence": "01",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 30,
+							"valueSequence": 2
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "NAVY",
+							"sequence": 1,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 0,
+							"valueSequence": 2
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882135",
+					"shortSku": "619374583",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 150,
+							"valueSequence": 12
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XXL",
+							"sequence": 0,
+							"valueSequence": 7
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882136",
+					"shortSku": "619374591",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 30,
+							"valueSequence": 2
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XS",
+							"sequence": 0,
+							"valueSequence": 2
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882137",
+					"shortSku": "619374604",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "S",
+							"sequence": 50,
+							"valueSequence": 4
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "S",
+							"sequence": 0,
+							"valueSequence": 3
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882138",
+					"shortSku": "619374612",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "M",
+							"sequence": 90,
+							"valueSequence": 6
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "M",
+							"sequence": 0,
+							"valueSequence": 4
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882139",
+					"shortSku": "619374621",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "L",
+							"sequence": 110,
+							"valueSequence": 8
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "L",
+							"sequence": 0,
+							"valueSequence": 5
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}, {
+					"itemId": "5882140",
+					"shortSku": "619374639",
+					"longSku": "121-224-0645-320",
+					"prodImg": "99553_02",
+					"swatchSequence": "02",
+					"listPrice": 50,
+					"listPriceFmt": "$50.00",
+					"offerPrice": 50,
+					"offerPriceFmt": "$50.00",
+					"taxItemType": "CLT",
+					"definingAttrs": {
+						"Size": {
+							"name": "Size",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 130,
+							"valueSequence": 10
+						},
+						"Color": {
+							"name": "Color",
+							"description": "Color",
+							"value": "BLUE",
+							"sequence": 2,
+							"valueSequence": 0
+						},
+						"Size_Grp_1_P": {
+							"name": "Size_Grp_1_P",
+							"description": "Size",
+							"value": "XL",
+							"sequence": 0,
+							"valueSequence": 6
+						}
+					},
+					"descriptiveAttrs": {
+
+					},
+					"inventory": {
+						"inventoryStatus": "Unavailable",
+						"inventory": 0,
+						"published": true
+					},
+					"priceFlag": "1"
+				}
+			];
+
+		mySkus.add(items.map(
+			function(item, index) {
+				var myAttribute = new Backbone.Collection(null, {
+						model: ANFApp.model._product.Attribute
+					}),
+					key = null,
+					inventory = {
+						"inventoryStatus": item.inventory.inventoryStatus,
+						"inventory": item.inventory.inventory,
+						"published": item.inventory.published,
+					},
+					price = new ANFApp.model._product.Price({
+						list : {
+			    			raw : item.listPrice,
+			    			formated: item.listPriceFmt
+						},
+						offer : {
+			    			raw : item.offerPrice,
+			    			formated: item.offerPriceFmt
+						},
+						priceFlag : item.priceFlag
+					});
+
+				if (typeof item.definingAttrs === "object" && item.definingAttrs !== null) {
+					for (key in item.definingAttrs) {
+						if (item.definingAttrs.hasOwnProperty(key)) { 
+							myAttribute.add([
+								item.definingAttrs[key]
+							]);
+						}
+					}
+				}
+
+				return {
+					"definingAttrs": myAttribute,
+					"descriptiveAttrs": item.descriptiveAttrs,
+					"inventory":inventory,
+					"itemId": item.itemId,
+					"longSku": item.longSku,
+					"price" : price,
+					"priceFlag": item.priceFlag,
+					"prodImg": item.prodImg,
+					"shortSku": item.shortSku,
+					"swatchSequence": item.swatchSequence,
+					"taxItemType": item.taxItemType
+				}
+			}
+		));
+
+		myProduct = new ANFApp.model._product.ATB({
+			"collection":"99553",
+			"crossSellProductIds":[],
+			"defaultSwatchSequence":"01",
+			"displaySoldOut":false,
+			"isGiftCard":false,
+			"items": mySkus,
+			"loadDate":"",
+			"longDesc":"Supersoft with a timeless design, featuring a contrast icon at left chest, interior neck taping and side slits, an asymmetrical hem, Muscle Fit, Imported<br><br>100% Cotton",
+			"maxPurchaseQty": 2,
+			"modelBackground":"default",
+			"name":"Big Icon Polo",
+			"newArrival": false,
+			"ofpImage":"1",
+			"price" : new ANFApp.model._product.Price({
+				list : {
+	    			raw : 0,
+	    			formated: "$0.00"
+				},
+				offer : {
+	    			raw : 0,
+	    			formated: "$0.00"
+				},
+				priceFlag : "1"
+			}),
+			"priceFlag":"1",
+			"productAttrs":[],
+			"productAttrsComplex":{},
+			"productId":"5881102",
+			"published":false,
+			"shortDesc":"",
+			"sizeChartSeq":"1",
+			"swatchAttrId":"Color",
+			"swatchSequences":["01", "02", "03"],
+			"swatchSequencesExcludeSoldOut":[],
+			"newArrival":false,
+			"maxPurchaseQty":2,
+			"loadDate":"2015-10-08T17:46:12",
+
+
+			currentPrice : new ANFApp.model._product.Price(),
+    		currentSelectedSku : "",
+    		currentSelectedSeq : "01"
+    		
+		});
+
+		new ANFApp.view._product.ATBProduct({
+			model: myProduct
+		});
+
+		</script>
+
+</html>
